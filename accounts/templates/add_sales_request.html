@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Sales Request</title>
+    <style>
+      /* Стили для формы */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      form {
+        width: 400px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      button[type="submit"] {
+        padding: 10px 20px;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button[type="submit"]:hover {
+        background-color: #2980b9;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Добавить новую заявку</h1>
+    <form method="post">
+      {% csrf_token %}
+      <label for="id_company">Компания:</label>
+      {{ form.company }}
+      <label for="id_order_number">Номер наряда:</label>
+      {{ form.order_number }}
+      <label for="id_inclusion_date">Дата включения:</label>
+      {{ form.inclusion_date }}
+      <label for="id_city">Город:</label>
+      {{ form.city }}
+      <label for="id_street">Улица:</label>
+      {{ form.street }}
+      <label for="id_apartment_number">Номер квартиры :</label>
+      {{ form.apartment_number }}
+      <label for="id_contact_person">Контактное лицо:</label>
+      {{ form.contact_person }}
+      <label for="id_equipment">Оборудования:</label>
+      {{ form.equipment }}
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

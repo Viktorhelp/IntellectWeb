@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Equipment</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+      }
+      .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      label {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      input[type="text"] {
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Добавление нового оборудования</h1>
+      <form action="{% url 'add_equipment' %}" method="post">
+        {% csrf_token %}
+        <label for="name">Наименование:</label>
+        <input type="text" id="name" name="name" required />
+        <label for="status">Статус:</label>
+        <input type="text" id="status" name="status" required />
+        <label for="type">Тип оборудования:</label>
+        <input type="text" id="type" name="type" required />
+        <label for="model">Модель:</label>
+        <input type="text" id="model" name="model" required />
+        <label for="serial_number">Серийный номер:</label>
+        <input type="text" id="serial_number" name="serial_number" required />
+        <label for="mac_address">Мак адрес:</label>
+        <input type="text" id="mac_address" name="mac_address" required />
+        <label for="responsible_person">Ответственное лицо:</label>
+        <input
+          type="text"
+          id="responsible_person"
+          name="responsible_person"
+          required
+        />
+        <input type="submit" value="Добавить" />
+      </form>
+    </div>
+  </body>
+</html>

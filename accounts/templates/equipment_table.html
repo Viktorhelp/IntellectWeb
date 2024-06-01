@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Equipment Table</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        text-align: center;
+        margin-top: 20px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      th,
+      td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      tr:hover {
+        background-color: #ddd;
+      }
+      .add-button {
+        background-color: #4caf50;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 20px auto;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      .export-button {
+        background-color: #4caf50;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 20px auto;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+
+      .add-request-button {
+        background-color: #4caf50;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 20px auto;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Список оборудования</h1>
+    
+    <!-- Кнопка добавления нового оборудования -->
+    <button class="add-button" onclick="redirectToAddEquipment()">
+      Добавить оборудование
+    </button>
+    
+            <!-- Кнопка для выгрузки данных в Excel -->
+      <a href="{% url 'export_equipment_to_excel' %}" class="export-button">Выгрузить в Excel</a>
+
+      <a href="/home" class="add-request-button">На Главную</a>
+
+    <!-- Таблица оборудования -->
+    <table>
+      <thead>
+        <tr>
+          <th>Наименование</th>
+          <th>Статус</th>
+          <th>Тип оборудования</th>
+          <th>Модель</th>
+          <th>Серийный номер</th>
+          <th>Мак адрес</th>
+          <th>Ответственное лицо</th>
+          <th>Действия</th>
+          <!-- Новая колонка для кнопки редактирования -->
+        </tr>
+      </thead>
+      <tbody>
+        {% for eq in equipment %}
+        <tr>
+          <td>{{ eq.name }}</td>
+          <td>{{ eq.status }}</td>
+          <td>{{ eq.type }}</td>
+          <td>{{ eq.model }}</td>
+          <td>{{ eq.serial_number }}</td>
+          <td>{{ eq.mac_address }}</td>
+          <td>{{ eq.responsible_person }}</td>
+          <!-- Кнопка редактирования -->
+          <td>
+            <a href="{% url 'edit_equipment' eq.pk %}" class="edit-button"
+              >Редактировать</a
+            >
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <!-- JavaScript для перехода на страницу добавления оборудования -->
+    <script>
+      function redirectToAddEquipment() {
+        window.location.href = "{% url 'add_equipment' %}";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Склад</title>
+    <style>
+      /* Общие стили CSS */
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      /* Стили для кнопки "Склад" */
+      .button {
+        padding: 10px 20px;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      /* Стили для скрытого содержимого */
+      .hidden-content {
+        display: none;
+        margin-top: 10px;
+      }
+
+      /* Стили для кнопок "Кабель" и "Сетевое оборудование" */
+      .hidden-content .button {
+        display: block;
+        margin-bottom: 10px;
+        background-color: #2ecc71;
+      }
+
+      /* Стили для кнопок при наведении */
+      .button:hover {
+        background-color: #2980b9;
+      }
+
+      /* Стили для таблицы */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+
+      th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Склад</h1>
+
+    <!-- Кнопка "Склад" -->
+    <button class="button" onclick="toggleContent()">Склад</button>
+
+    <!-- Скрытые кнопки "Кабель" и "Сетевое оборудование" -->
+    <div id="hiddenContent" class="hidden-content">
+      <button class="button" onclick="redirectToCablePage()">Кабель</button>
+      <button class="button" onclick="redirectToNetworkEquipmentPage()">
+        Сетевое оборудование
+      </button>
+      <button class="button" onclick="handleItemClick('Инструмент')">
+        Инструмент
+      </button>
+    </div>
+
+    <!-- Таблица со списком ТМЦ -->
+    <table id="cableTable" style="display: none">
+      <thead>
+        <tr>
+          <th>Наименование</th>
+          <th>Артикул</th>
+          <th>Метраж</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Здесь будут отображаться данные о кабеле -->
+      </tbody>
+    </table>
+
+    <!-- JavaScript для переключения видимости скрытого содержимого -->
+    <script>
+      function toggleContent() {
+        var content = document.getElementById("hiddenContent");
+        if (content.style.display === "none") {
+          content.style.display = "block";
+        } else {
+          content.style.display = "none";
+        }
+      }
+
+      function redirectToCablePage() {
+        // Здесь вы можете указать URL вашей страницы о кабеле
+        window.location.href = "/cable";
+      }
+
+      function redirectToNetworkEquipmentPage() {
+        // Здесь вы указываете URL вашей страницы о сетевом оборудовании
+        window.location.href = "/network_equipment";
+      }
+
+      function handleItemClick(item) {
+        alert("Выбрано: " + item);
+        // Здесь можно добавить дополнительный код для обработки выбранного элемента
+      }
+    </script>
+  </body>
+</html>

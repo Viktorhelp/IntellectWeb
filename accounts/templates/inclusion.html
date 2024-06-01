@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vodafon</title>
+    <style>
+      /* Общие стили */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+      }
+      .container {
+        max-width: 100%;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      /* Стили для формы */
+      form {
+        margin-bottom: 30px;
+      }
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+      button[type="submit"] {
+        padding: 10px 20px;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      button[type="submit"]:hover {
+        background-color: #2980b9;
+      }
+      /* Стили для таблицы */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      th,
+      td {
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+      th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+        text-align: left;
+      }
+      /* Кнопка добавления новой заявки */
+      .add-request-button {
+        display: block;
+        width: 95%;
+        padding: 10px 20px;
+        background-color: #27ae60;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .add-request-button:hover {
+        background-color: #219652;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Включения Водафон</h1>
+      <!-- Кнопка добавления новой заявки -->
+      <a href="{% url 'sales_request_list' %}" class="add-request-button"
+        >Заявки продаж</a
+      >
+      <a href="/add_sales_request">Добавить заявку</a>
+      <a href="/home" class="add-request-button">На Главную</a>
+      <!-- Таблица со списком заявок -->
+      <table>
+        <thead>
+          <tr>
+            <th>Компания</th>
+            <th>Номер наряда</th>
+            <th>Дата включения</th>
+            <th>Город</th>
+            <th>Улица</th>
+            <th>Номер квартиры</th>
+            <th>Контактное лицо</th>
+            <th>Оборудования</th>
+
+            <!-- Другие заголовки столбцов -->
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Пример строки таблицы -->
+          <tr>
+            <td>Заявка 1</td>
+            <td>Описание заявки 1</td>
+            <!-- Другие ячейки строки -->
+          </tr>
+          <!-- Добавьте другие строки таблицы по аналогии -->
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sales Requests</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    {% csrf_token %}
+    <h1>Sales Requests</h1>
+    <a href="/add_sales_request">Добавить заявку</a>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Компания</th>
+          <th>Номер наряда</th>
+          <th>Дата включения</th>
+          <th>Город</th>
+          <th>Улица</th>
+          <th>Номер квартиры</th>
+          <th>Контактное лицо</th>
+          <th>Оборудования</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for sales_request in sales_requests %}
+        <tr>
+          <td>{{ sales_request.company }}</td>
+          <td>{{ sales_request.order_number }}</td>
+          <td>{{ sales_request.date }}</td>
+          <td>{{ sales_request.address }}</td>
+          <td>{{ sales_request.location }}</td>
+          <td>{{ sales_request.contact_person }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
